@@ -12,19 +12,22 @@ import java.util.function.BiPredicate;
 public class LogicTest {
 
   private static final int WINDOW_SIZE = 5;
-  private static final List<Pair<Integer, Integer>> movementsList = Arrays.asList(new Pair<>(2,1), new Pair<>(1,2),
-                                                                                  new Pair<>(-2,1), new Pair<>(1,-2),
-                                                                                  new Pair<>(-1,2), new Pair<>(2,-1),
-                                                                                  new Pair<>(-2,-1), new Pair<>(-1,-2));
+  private List<Pair<Integer, Integer>> movementsList;
   private Logics logic;
-  private List<Pair<Integer, Integer>> legalMoves = new ArrayList<Pair<Integer, Integer>>();
-  private List<Pair<Integer, Integer>> illegalMoves = new ArrayList<Pair<Integer, Integer>>();
+  private List<Pair<Integer, Integer>> legalMoves;
+  private List<Pair<Integer, Integer>> illegalMoves;
   private Pair<Integer, Integer> knightPosition;
   private Pair<Integer, Integer> pawnPosition;
 
   @BeforeEach
   void beforeEach(){
     logic = new LogicsImpl(WINDOW_SIZE);
+    legalMoves = new ArrayList<Pair<Integer, Integer>>();
+    illegalMoves = new ArrayList<Pair<Integer, Integer>>();
+    movementsList = Arrays.asList(new Pair<>(2,1), new Pair<>(1,2),
+                                  new Pair<>(-2,1), new Pair<>(1,-2),
+                                  new Pair<>(-1,2), new Pair<>(2,-1),
+                                  new Pair<>(-2,-1), new Pair<>(-1,-2));
     this.setKnightAndPawnPosition();
     this.setLegalMoves();
   }
@@ -78,7 +81,7 @@ public class LogicTest {
     }
   }
 
-  @Test
+  @Test 
   public void testIllegalKnightMove() {
     Logics newLogic = new LogicsImpl(new Pair<Integer, Integer>(0,0), new Pair<Integer, Integer>(5,5), WINDOW_SIZE);
     assertFalse(newLogic.hit(1, 1)); 
