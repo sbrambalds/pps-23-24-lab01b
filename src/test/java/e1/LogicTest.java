@@ -12,11 +12,11 @@ public class LogicTest {
 
   private static final int WINDOW_SIZE = 5;
   private List<Pair<Integer, Integer>> movementsList;
-  private Logics logic;
   private List<Pair<Integer, Integer>> legalMoves;
   private List<Pair<Integer, Integer>> illegalMoves;
   private Pair<Integer, Integer> knightPosition;
   private Pair<Integer, Integer> pawnPosition;
+  private Logics logic;
 
   @BeforeEach
   void beforeEach(){
