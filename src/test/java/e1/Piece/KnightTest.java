@@ -1,15 +1,17 @@
-package e1;
+package e1.Piece;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import e1.Pair;
+
 public class KnightTest extends PieceTest{
 
     @BeforeEach
     public void beforeEach(){
-        this.piece = new Knight(new Pair<Integer, Integer>(0,0));
+        this.piece = PieceFactory.createKnight(new Pair<Integer, Integer>(0,0));
     }
 
     @Test

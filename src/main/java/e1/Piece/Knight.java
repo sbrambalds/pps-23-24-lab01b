@@ -1,6 +1,8 @@
-package e1;
+package e1.Piece;
 
-public class Knight implements Piece {
+import e1.Pair;
+
+public class Knight implements Piece, Movable {
 
     private Pair<Integer, Integer> position;
 
@@ -8,11 +10,12 @@ public class Knight implements Piece {
         this.position = position;
     }
 
+    @Override
     public void move(Pair<Integer, Integer> newPosition){
 		int x = newPosition.getX() - this.position.getX();
 		int y = newPosition.getY() - this.position.getY();
 		if (x!=0 && y!=0 && Math.abs(x)+Math.abs(y)==3) {
-			this.position = new Pair<>(newPosition.getX(),newPosition.getY());
+			this.position = (new Pair<>(newPosition.getX(),newPosition.getY()));
 		}
     }
 

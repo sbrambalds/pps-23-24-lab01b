@@ -1,4 +1,6 @@
-package e1;
+package e1.Piece;
+
+import e1.Pair;
 
 public interface Piece {
 
